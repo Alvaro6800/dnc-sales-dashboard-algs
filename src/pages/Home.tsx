@@ -1,5 +1,5 @@
 import { Header, CardComponent } from '@/components'
-import { Card, Container } from '@mui/material'
+import { Container } from '@mui/material'
 
 function Home() {
   return (
