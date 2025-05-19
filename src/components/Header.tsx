@@ -4,7 +4,7 @@ import { Logo } from '@/components'
 import { Avatar, Box, Container } from '@mui/material'
 import { pxToRem } from '@/utils'
 
-const StyledHeader = styled.div`
+const StyledHeader = styled.header`
   background-color: ${(props) => props.theme.appBackground};
   border-bottom: ${pxToRem(1)} solid ${(props) => props.theme.appDefaultStroke};
   margin-bottom: ${pxToRem(37)};
