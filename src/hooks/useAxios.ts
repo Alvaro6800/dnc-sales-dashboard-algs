@@ -114,7 +114,6 @@ export const usePut = <T>(endpoint: string) => {
 export const useDelete = <T>(endpoint: string) => {
   const [data, setData] = useState<T | null>(null)
   const [loading, setLoading] = useState(false)
-  const [error, setError] = useState<number | null>(null)
 
   const deleteData = async (config?: AxiosRequestConfig) => {
     setData(null)
@@ -139,5 +138,5 @@ export const useDelete = <T>(endpoint: string) => {
     }
   }
 
-  return { data, loading, error, deleteData }
+  return { data, loading, deleteData }
 }
