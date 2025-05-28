@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 import type { AxiosRequestConfig } from 'axios'
+import Cookies from 'js-cookie'
 
 // Cria uma instancia que vai conter as informações basicas das requests
 const axiosInstance = axios.create({
@@ -39,4 +40,39 @@ export const usePost = <T, P>(endpoint: string) => {
   }
 
   return { data, loading, error, postData }
+}
+
+export const useGet = <T>(endpoint: string, config?: AxiosRequestConfig) => {
+  const [data, setData] = useState<T | null>(null)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<number | null>(null)
+
+  const getData = async () => {
+    setLoading(true)
+    setError(null)
+
+    try {
+      const response = await axiosInstance({
+        url: endpoint,
+        method: 'GET',
+        headers: {
+          Authorization: `Bearear ${Cookies.get('Authorization')}`,
+          ...config?.headers,
+        },
+        ...config,
+      })
+      setData(response.data)
+    } catch (e: any) {
+      console.log(e)
+      setError(e.response?.status ?? 500)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    getData()
+  }, [])
+
+  return { data, loading, error, getData }
 }
