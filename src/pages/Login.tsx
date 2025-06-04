@@ -29,7 +29,7 @@ import type {
 } from '@/types'
 
 // Redux
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import type { RootState } from '@/redux'
 
 function Login() {
