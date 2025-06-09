@@ -120,7 +120,9 @@ function Leads() {
             >
               {!leadsError && !leadsLoading && (
                 <>
-                  <StyledH2 className="mb-1">Meus Leads</StyledH2>
+                  <StyledH2 id="leads-title" className="mb-1">
+                    Meus Leads
+                  </StyledH2>
                   {leadsData?.length ? (
                     <CustomTable
                       headers={['Nome', 'Email', 'Telefone', '']}
