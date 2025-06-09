@@ -3,24 +3,28 @@ import globals from 'globals'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
+import cypress from 'eslint-plugin-cypress'
+import prettier from 'eslint-config-prettier'
 
-export default tseslint.config(
-  { ignores: ['dist'] },
+export default [
   {
-    extends: [
-      js.configs.recommended,
-      ...tseslint.configs.recommended,
-      'eslint-config-prettier',
-      'plugin: cypress/recommended',
-    ],
+    ignores: ['dist'],
+  },
+  {
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
+      parserOptions: {
+        ecmaVersion: 2020,
+        sourceType: 'module',
+      },
+      globals: {
+        ...globals.browser,
+      },
     },
     plugins: {
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
+      cypress,
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
@@ -29,5 +33,10 @@ export default tseslint.config(
         { allowConstantExport: true },
       ],
     },
-  }
-)
+  },
+  // Configs como objetos (sem "extends")
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
+  prettier,
+  cypress.configs.recommended,
+]
