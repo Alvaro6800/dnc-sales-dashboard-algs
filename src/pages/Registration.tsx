@@ -154,6 +154,8 @@ function Registration() {
                     children: email ? 'Enviar' : 'Próximo',
                   },
                 ]}
+                linkPath="/"
+                linkText="Voltar para o Login"
               />
             </Container>
           </Grid>

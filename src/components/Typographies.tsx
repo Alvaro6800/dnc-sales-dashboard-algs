@@ -16,6 +16,20 @@ export const StyledH2 = styled.h2<TypographiesProps>`
   font-weight: ${(props) => props.weight || 600};
   letter-spacing: ${pxToRem(-1)};
   line-height: ${(props) => pxToRem(props.lineheight || 24)};
+  display: inline-block;
+
+  &.link {
+    color: #03a9f4;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 600;
+
+    &:hover {
+      color: #81d4fa;
+      text-decoration: underline;
+      font-weight: 800;
+    }
+  }
 `
 
 export const StyledH3 = styled.h2<TypographiesProps>`
