@@ -22,6 +22,7 @@ import type {
   MessageProps,
 } from '@/types'
 import { useState, useEffect, type ChangeEvent } from 'react'
+import { pxToRem } from '@/utils'
 
 function Leads() {
   // Hooks
@@ -110,7 +111,11 @@ function Leads() {
   return (
     <>
       <Header />
-      <Container className="mb-2" maxWidth="lg">
+      <Container
+        className="mb-2"
+        maxWidth="xl"
+        sx={{ padding: pxToRem(15), sm: { padding: `0 ${pxToRem(70)}}` } }}
+      >
         <Grid container spacing={4}>
           <Grid size={{ xs: 12, sm: 7 }}>
             <CardComponent

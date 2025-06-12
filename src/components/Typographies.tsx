@@ -19,15 +19,15 @@ export const StyledH2 = styled.h2<TypographiesProps>`
   display: inline-block;
 
   &.link {
-    color: #03a9f4;
+    color: ${(props) => props.theme.buttons.primary};
     text-decoration: none;
     transition: all 0.3s ease;
     font-weight: 600;
 
     &:hover {
-      color: #81d4fa;
       text-decoration: underline;
       font-weight: 800;
+      font: bold;
     }
   }
 `
