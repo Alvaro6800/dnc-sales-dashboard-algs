@@ -26,7 +26,12 @@ function AvatarList(props: AvatarsListProps) {
               }}
             />
           </Box>
-          <Box>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+            }}
+          >
             <StyledH2>{item.name}</StyledH2>
             <StyledSpan>{item.subtitle}</StyledSpan>
           </Box>
