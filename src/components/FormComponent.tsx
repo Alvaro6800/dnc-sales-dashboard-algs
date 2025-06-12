@@ -4,7 +4,7 @@ import type { FormComponentProps } from '@/types'
 import { pxToRem } from '@/utils'
 import { useNavigate } from 'react-router-dom'
 import { setProfileData } from '@/redux/slices/createProfile'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 export const StyledForm = styled.form`
   display: flex;
