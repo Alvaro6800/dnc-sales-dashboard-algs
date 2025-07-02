@@ -122,6 +122,8 @@ function Login() {
                   },
                 ]}
                 message={handleMessage()}
+                linkPath="/cadastro"
+                linkText="Crie sua conta"
               />
             </Container>
           </Grid>

@@ -60,7 +60,6 @@ function Home() {
 
   return (
     <>
-      s
       <Header />
       <Container className="mb-2" maxWidth="lg">
         <Grid container spacing={4}>
